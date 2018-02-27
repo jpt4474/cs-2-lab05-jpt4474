@@ -44,7 +44,7 @@ public class TollRecord implements Comparable<TollRecord>{
      * TollRecord Constructor
      */
     public TollRecord(String tag,int onExit,int onTime){
-        tag = this.tag;
+        this.tag = tag;
         this.onExit = onExit;
         this.onTime = onTime;
     }
@@ -118,7 +118,7 @@ public class TollRecord implements Comparable<TollRecord>{
      * Returns a string representation of the record for use in reports
      */
     public String report(){
-       return  "["+tag+"] on "+Integer.toString(onExit)+", time "+Integer.toString(onTime)+"; off "+offExit+", time "+offTime;
+       return  ("["+tag+"] on "+Integer.toString(onExit)+", time "+Integer.toString(onTime)+"; off "+offExit+", time "+offTime);
     }
     /**
      * Returns a hash code value

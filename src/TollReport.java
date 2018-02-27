@@ -6,6 +6,11 @@
  */
 public class TollReport {
     public static void main(String[] args){
+        if(args.length!=1){
+            System.out.println("Usage: java TollReport event-file");
+            System.exit(1);
+        }
 
+        TollRoadDatabase database = new TollRoadDatabase(args[0]);
     }
 }
