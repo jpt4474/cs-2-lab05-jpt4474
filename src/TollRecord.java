@@ -106,19 +106,25 @@ public class TollRecord implements Comparable<TollRecord>{
     /**
      * Returns a string representation of the object
      */
+    @Override
     public String toString(){
         if(offExit==-1){
             return "["+tag+"]{("+Integer.toString(onExit)+","+Integer.toString(onTime)+")}";
         }
         else{
-            return "["+tag+"]{("+Integer.toString(onExit)+","+Integer.toString(onTime)+"),("+Integer.toString(offExit)+","+Integer.toString(offExit)+")}";
+            return "["+tag+"]{("+Integer.toString(onExit)+","+Integer.toString(onTime)+"),("+Integer.toString(offExit)+","+Integer.toString(offTime)+")}";
         }
     }
     /**
      * Returns a string representation of the record for use in reports
      */
     public String report(){
-       return  ("["+tag+"] on "+Integer.toString(onExit)+", time "+Integer.toString(onTime)+"; off "+offExit+", time "+offTime);
+        if(offTime==-1){
+            return  ("["+tag+"] on "+Integer.toString(onExit)+", time "+Integer.toString(onTime));
+        }
+        else{
+            return  ("["+tag+"] on "+Integer.toString(onExit)+", time "+Integer.toString(onTime)+"; off "+offExit+", time "+offTime);
+        }
     }
     /**
      * Returns a hash code value
@@ -129,6 +135,7 @@ public class TollRecord implements Comparable<TollRecord>{
     /**
      * The natural order comparison for TollRecords
      */
+    @Override
     public int compareTo(TollRecord o){
         return tag.compareTo(o.tag);
     }
